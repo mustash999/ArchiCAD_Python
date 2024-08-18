@@ -12,10 +12,7 @@
 
 # external imports
 from archicad import ACConnection
-import sys
-import utils
-import opennings_control as op
-import table_control as table
+
 conn = ACConnection.connect()
 assert conn
 acc = conn.commands
@@ -24,8 +21,8 @@ acu = conn.utilities
 
 # internal imports
 import os
-
-#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import opennings_control as op
 import table_control as table
