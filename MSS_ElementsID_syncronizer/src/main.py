@@ -28,20 +28,12 @@ import opennings_control as op
 import table_control as table
 import ask
 import utils
-import os
 
 
 def main():
 	
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
-	
 	file_path = f"MSS_ElementsID_syncronizer/output/{el_type}s.xlsx"
-	if not os.path.exists(file_path):
-		# Create the directory if it doesn't exist
-		os.makedirs(os.path.dirname(file_path), exist_ok=True)
-		# Create the file
-		with open(file_path, 'w') as f:
-			pass
 	or_fd = table.read_excel_file(file_path)
 	fd = table.remove_duplicates(or_fd)
 
