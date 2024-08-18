@@ -31,16 +31,15 @@ import utils
 
 
 def main():
-	
+	el_type = ask.mss_type_select()
+
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
 	file_path = f"MSS_ElementsID_syncronizer/output/{el_type}s.xlsx"
 	or_fd = table.read_excel_file(file_path)
 	fd = table.remove_duplicates(or_fd)
 
-
-
 	#-------------------------------------------------------------Extracting the opennings and searching for them in the excel file----------------------------------------------
-	el_type = ask.mss_type_select()
+	
 	i = 0
 	all_opennings = op.ext_all_of_type(el_type)
 
