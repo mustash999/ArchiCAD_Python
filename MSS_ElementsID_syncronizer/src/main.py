@@ -63,8 +63,10 @@ def main():
 			if found is not None:
 				found = table.mss_srch(found, "Height", openning_props["General_Height"])
 				if found is not None:
+					print(f"door {i} found in the excel file - updating the ID")
 					op.set_openning_id(openning, found["Element ID"].values[0])
 					trig = True # ----------->>>> door found in the excel file trigger set to True
+					
 		if not trig:
 			print (f"door {i} not found in the excel file")
 			new_entry = {"Library Part Name": openning_props["General_LibraryPartName"],

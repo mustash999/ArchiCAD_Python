@@ -19,7 +19,7 @@ def mss_create_path(file_name):
 	if not os.path.exists(file_path):
 		df = pd.DataFrame(columns=["Library Part Name", "Width", "Height", "Element ID"])
 		df.to_excel(file_path, index=False)
-	
+	print(f"File created at: {file_path}")
 	return file_path
 
 # Example usage
