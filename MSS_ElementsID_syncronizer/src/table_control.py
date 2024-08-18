@@ -22,13 +22,6 @@ def mss_create_path(file_name):
 	print(f"File created at: {file_path}")
 	return file_path
 
-# Example usage
-file_name = "example_file"
-file_path = mss_create_path(file_name)
-if file_path:
-	print(f"File created at: {file_path}")
-
-
 def read_excel_file(file_path):
 	try:
 		df = pd.read_excel(file_path)
