@@ -14,5 +14,6 @@ def install_and_import(package):
 required_packages = ["pandas", "openpyxl"]
 
 # Install and import each package
-for package in required_packages:
-    install_and_import(package)
+def mss_install_required_packages():
+    for package in required_packages:
+        install_and_import(package)

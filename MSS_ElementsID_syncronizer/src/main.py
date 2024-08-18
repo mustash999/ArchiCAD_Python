@@ -26,22 +26,22 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import opennings_control as op
 import table_control as table
-import ask
+import mss_wins as wins
 import utils
 import pandas as pd
+import os
+import subprocess
 
 
 def main():
-	el_type = ask.mss_type_select()
+
+	el_type = wins.mss_type_select()
 
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
 	
-	file_path = f"MSS_ElementsID_syncronizer/output/{el_type}s.xlsx"
+	file_path = table.mss_create_path("MSS_ElementsID_syncronizer/output", el_type)
 
-	if not os.path.exists(file_path):
-		# Create a new file if it doesn't exist
-		fd = pd.DataFrame(columns=["Library Part Name", "Width", "Height", "Element ID"])
-		fd.to_excel(file_path, index=False)
+ 
 
 	or_fd = table.read_excel_file(file_path)
 	fd = table.remove_duplicates(or_fd)
@@ -78,7 +78,13 @@ def main():
 	print(f"Total {i} doors processed")
 	fd.to_excel(file_path, index=False)
 	print("Excel file updated")
-	
+	def open_file_with_excel(file_path):
+		if os.path.exists(file_path):
+			subprocess.Popen(['start', file_path], shell=True)
+		else:
+			print(f"File '{file_path}' does not exist.")
+
+	wins.mss_message_box(f"Total {i} element processed\nExcel file updated")
  
 		
 		

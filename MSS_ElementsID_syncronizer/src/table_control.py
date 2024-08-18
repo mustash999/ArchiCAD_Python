@@ -1,4 +1,13 @@
 import pandas as pd
+import os
+
+def mss_create_path(path, file_name):
+	file_path = f"{path}/{file_name}s.xlsx"
+	if not os.path.exists(file_path):
+		# Create a new file if it doesn't exist
+		fd = pd.DataFrame(columns=["Library Part Name", "Width", "Height", "Element ID"])
+		fd.to_excel(file_path, index=False)
+	return file_path
 
 def read_excel_file(file_path):
 	try:
@@ -10,30 +19,21 @@ def read_excel_file(file_path):
 	except Exception as e:
 		print(f"Error: An unexpected error occurred: {str(e)}")
 		return None
-	
+
 def remove_duplicates(df):
-    """
-    Removes duplicate rows in a DataFrame based on the first three columns: 
-    'Library Part Name', 'Width', and 'Height'.
 
-    Parameters:
-    - df (pd.DataFrame): Input DataFrame.
-
-    Returns:
-    - pd.DataFrame: DataFrame with duplicates removed.
-    """
-    # Define the columns to check for duplicates
-    columns_to_check = ["Library Part Name", "Width", "Height"]
-    
-    # Check if all required columns are in the DataFrame
-    for col in columns_to_check:
-        if col not in df.columns:
-            raise ValueError(f"Column '{col}' not found in DataFrame")
-    
-    # Drop duplicates based on the specified columns
-    df_no_duplicates = df.drop_duplicates(subset=columns_to_check)
-    
-    return df_no_duplicates
+	# Define the columns to check for duplicates
+	columns_to_check = ["Library Part Name", "Width", "Height"]
+	
+	# Check if all required columns are in the DataFrame
+	for col in columns_to_check:
+		if col not in df.columns:
+			raise ValueError(f"Column '{col}' not found in DataFrame")
+	
+	# Drop duplicates based on the specified columns
+	df_no_duplicates = df.drop_duplicates(subset=columns_to_check)
+	
+	return df_no_duplicates
 
 
 def mss_srch(df, column_name, search_value):
@@ -45,9 +45,9 @@ def mss_srch(df, column_name, search_value):
 
 def mss_add_entry(df, entry):
 
-    new_entry_df = pd.DataFrame([entry])
-    df = pd.concat([df, new_entry_df], ignore_index=True)
-    return df
+	new_entry_df = pd.DataFrame([entry])
+	df = pd.concat([df, new_entry_df], ignore_index=True)
+	return df
 
 
 """
