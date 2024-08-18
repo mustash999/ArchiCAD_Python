@@ -42,14 +42,15 @@ except ImportError:
 	print("Failed to import PIL after installation. Please check the installation.")
 	sys.exit(1)
 
-def mss_run_scrpt_thrd():
-    import MSS_ElementsID_syncronizer.src.main as sync_ids
-    thread = threading.Thread(target=sync_ids.main)
-    thread.start()
+def mss_run_scrpt():
+	import MSS_ElementsID_syncronizer.src.main as sync_ids
+	sync_ids.main()
+	root.destroy()
 
 def mss_open_link(link):
 	import webbrowser
 	webbrowser.open(link)
+	root.destroy()
 
 	# ----------------------------------------------Exit button--------------- -------------------------------------------------------		
 def mss_exit(root):
@@ -83,7 +84,7 @@ def main():
 	labelpath = tk.Label(frame,text="Scripts",wraplength=220,justify="left")
 	labelpath.pack(padx=5, pady=5)
 
-	script_button = tk.Button(frame, text="Run Script", width=35, command=lambda: mss_run_scrpt_thrd())
+	script_button = tk.Button(frame, text="Run Script", width=35, command=lambda: mss_run_scrpt())
 	script_button.pack(padx=5, pady=5)
 
 	# ----------------------------------------------Exit button--------------- -------------------------------------------------------
@@ -99,5 +100,6 @@ def main():
 
 	#-------------------------------------------------Main Window construction------------------------------------------------
 	root.mainloop()
-
-threading.Thread(target=main).start()
+	
+if __name__ == "__main__":
+	main()
