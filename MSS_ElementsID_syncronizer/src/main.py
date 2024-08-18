@@ -11,6 +11,9 @@
 # **************************************************************************** #
 
 # internal imports
+import os
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 import utils
 import opennings_control as op
 import table_control as table
@@ -22,6 +25,7 @@ assert conn
 acc = conn.commands
 act = conn.types
 acu = conn.utilities
+
 def main():
 	
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
