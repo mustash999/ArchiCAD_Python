@@ -53,13 +53,13 @@ def main():
 	root = tk.Tk()
 	# -------------------------------------------------Main Window construction------------------------------------------------
 	root.title("PSP Script Manager")
-	root.iconbitmap("resources/icon_PSP.ico") 
+	root.iconbitmap("mss_manager/resources/icon_PSP.ico") 
 
 	#This part is to set the frame and the labels and buttons
 	frame=tk.Frame(root)
 	frame.pack(fill="both", expand=True)
 		#----------------------------------------------Top Image------------------------------------------------------------------------------
-	image_psp = Image.open("resources/psp.png")
+	image_psp = Image.open("mss_manager/resources/psp.png")
 	resized_psp = image_psp.resize((250, 65))
 	tk_image_psp = ImageTk.PhotoImage(resized_psp)
 	image_label_psp = tk.Label(frame, image=tk_image_psp, height=65, width=250)
@@ -86,7 +86,7 @@ def main():
 	exit_button.pack(padx=5, pady=5)
 
 	#----------------------------------------------Image------------------------------------------------------------------------------
-	image = Image.open("resources/logo.png")
+	image = Image.open("mss_manager/resources/logo.png")
 	resized_image = image.resize((125, 125))
 	tk_image = ImageTk.PhotoImage(resized_image)
 	image_label = tk.Label(frame, image=tk_image, height=125, width=125)
