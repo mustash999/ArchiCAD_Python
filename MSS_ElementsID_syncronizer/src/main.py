@@ -36,7 +36,7 @@ import threading
 
 def main():
 	
-	el_type = threading.Thread(target=wins.mss_run_scrpt).start()
+	el_type = threading.Thread(target=wins.mss_type_select()).start()
 
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
 	
