@@ -35,7 +35,7 @@ import subprocess
 
 def main():
 
-	el_type = wins.mss_type_select()
+	el_type = "Door" #"wins.mss_type_select()"
 
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
 	
