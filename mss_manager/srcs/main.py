@@ -96,5 +96,4 @@ def main():
 	root.mainloop()
 
 if __name__ == "__main__":
-	print(os.getcwd())
 	main()
