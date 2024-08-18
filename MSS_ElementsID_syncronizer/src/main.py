@@ -25,7 +25,7 @@ acu = conn.utilities
 # internal imports
 import os
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import opennings_control as op
 import table_control as table
