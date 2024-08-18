@@ -86,6 +86,5 @@ def main():
 
 	wins.mss_message_box(f"Total {i} element processed\nExcel file updated")
  
-		
-		
-	
+if __name__ == "__main__":
+	main()
