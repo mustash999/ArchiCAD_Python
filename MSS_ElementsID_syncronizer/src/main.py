@@ -88,6 +88,7 @@ def main():
 			print(f"File '{file_path}' does not exist.")
 
 	wins.mss_message_box(f"Total {i} element processed\nExcel file updated")
+	exit()
  
 if __name__ == "__main__":
 	main()
