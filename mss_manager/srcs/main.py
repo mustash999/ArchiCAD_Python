@@ -44,13 +44,13 @@ except ImportError:
 
 def mss_run_scrpt():
 	import MSS_ElementsID_syncronizer.src.main as sync_ids
-	sync_ids.main()
 	root.destroy()
+	sync_ids.main()
 
 def mss_open_link(link):
 	import webbrowser
-	webbrowser.open(link)
 	root.destroy()
+	webbrowser.open(link)
 
 	# ----------------------------------------------Exit button--------------- -------------------------------------------------------		
 def mss_exit(root):

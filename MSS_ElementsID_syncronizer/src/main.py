@@ -39,7 +39,7 @@ def main():
 
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
 	
-	file_path = table.mss_create_path("output", el_type)
+	file_path = table.mss_create_path(el_type)
 
  
 
