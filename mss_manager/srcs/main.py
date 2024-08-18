@@ -42,10 +42,14 @@ except ImportError:
 	print("Failed to import PIL after installation. Please check the installation.")
 	sys.exit(1)
 
+def mss_run_scrpt_thrd():
+    import MSS_ElementsID_syncronizer.src.main as sync_ids
+    thread = threading.Thread(target=sync_ids.main)
+    thread.start()
+
 def mss_open_link(link):
 	import webbrowser
 	webbrowser.open(link)
-
 
 	# ----------------------------------------------Exit button--------------- -------------------------------------------------------		
 def mss_exit(root):
@@ -76,19 +80,11 @@ def main():
 	folder_button = tk.Button(frame, text="Open link", width=35, command=lambda: mss_open_link("https://geniuspandatech.com"))
 	folder_button.pack(padx=5, pady=5)
 	#----------------------------------------------- 2-  PSP Scripts ----------------------------------------------------------------
-	import MSS_ElementsID_syncronizer.src.main as sync_ids
 	labelpath = tk.Label(frame,text="Scripts",wraplength=220,justify="left")
 	labelpath.pack(padx=5, pady=5)
-	script_button = tk.Button(frame, text="Run Script", width=35, command=lambda: sync_ids.main())
+
+	script_button = tk.Button(frame, text="Run Script", width=35, command=lambda: mss_run_scrpt_thrd())
 	script_button.pack(padx=5, pady=5)
-
-
-
-
-	folder_button = tk.Button(frame, text="Run Script", width=35, command=lambda: mss_open_link("https://geniuspandatech.com"))
-	folder_button.pack(padx=5, pady=5)
-
-
 
 	# ----------------------------------------------Exit button--------------- -------------------------------------------------------
 	exit_button = tk.Button(frame, text="Exit", width=35, command=lambda: mss_exit(root))
