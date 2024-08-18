@@ -5,9 +5,10 @@ from tkinter import ttk
 
 def mss_type_select():
 	def get_selection():
-		global selected_option
-		selected_option = combobox.get()
-		root.destroy() 
+		selected_option = combobox.get()  # Get the selected option
+		root.quit()  # Stop the main loop
+
+	# Initialize the tkinter root window
 	root = tk.Tk()
 	root.title("Selection Window")
 
@@ -25,9 +26,12 @@ def mss_type_select():
 	button = tk.Button(root, text="OK", command=get_selection)
 	button.pack(pady=10)
 
-	root.mainloop()
+	root.mainloop()  # Start the main loop
 
-	return str(selected_option)
+	selected_option = combobox.get()  # Get the selected option after the loop ends
+	root.destroy()  # Destroy the window
+
+	return selected_option
 
 def mss_message_box(message):
 	root = tk.Tk()
