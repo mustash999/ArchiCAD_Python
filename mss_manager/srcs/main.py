@@ -42,10 +42,6 @@ except ImportError:
 	print("Failed to import PIL after installation. Please check the installation.")
 	sys.exit(1)
 
-def mss_run_scrpt():
-	import MSS_ElementsID_syncronizer.src.main as sync_ids
-	root.quit()
-	sync_ids.main()
 
 def mss_open_link(link):
 	import webbrowser
@@ -58,6 +54,10 @@ def mss_exit(root):
 
 def main():
 #This part is to set the window size and title
+	def mss_run_scrpt():
+		import MSS_ElementsID_syncronizer.src.main as sync_ids
+		root.quit()
+		sync_ids.main()
 	root = tk.Tk()
 	# -------------------------------------------------Main Window construction------------------------------------------------
 	root.title("PSP Script Manager")
