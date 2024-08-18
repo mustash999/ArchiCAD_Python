@@ -24,6 +24,7 @@ try:
 	from tkinter import messagebox
 	import os
 	from PIL import Image, ImageTk
+	import threading
 except ImportError as e:
 	missing_package = str(e).split("'")[1]
 	
@@ -103,5 +104,4 @@ def main():
 	#-------------------------------------------------Main Window construction------------------------------------------------
 	root.mainloop()
 
-if __name__ == "__main__":
-	main()
+threading.Thread(target=main).start()
