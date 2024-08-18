@@ -1,13 +1,33 @@
 import pandas as pd
 import os
+import tkinter as tk
+from tkinter import filedialog
 
-def mss_create_path(path, file_name):
-	file_path = f"{path}/{file_name}s.xlsx"
+def mss_create_path(file_name):
+	root = tk.Tk()
+	root.withdraw()
+	
+	folder_path = filedialog.askdirectory(title="Select Folder to Save the File")
+
+	if not folder_path:
+		print("No folder selected. Operation cancelled.")
+		return None
+
+	# Construct the full file path
+	file_path = os.path.join(folder_path, f"{file_name}s.xlsx")
+	
 	if not os.path.exists(file_path):
-		# Create a new file if it doesn't exist
-		fd = pd.DataFrame(columns=["Library Part Name", "Width", "Height", "Element ID"])
-		fd.to_excel(file_path, index=False)
+		df = pd.DataFrame(columns=["Library Part Name", "Width", "Height", "Element ID"])
+		df.to_excel(file_path, index=False)
+	
 	return file_path
+
+# Example usage
+file_name = "example_file"
+file_path = mss_create_path(file_name)
+if file_path:
+	print(f"File created at: {file_path}")
+
 
 def read_excel_file(file_path):
 	try:
