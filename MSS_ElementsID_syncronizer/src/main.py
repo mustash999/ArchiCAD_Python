@@ -31,10 +31,12 @@ import utils
 import pandas as pd
 import os
 import subprocess
+import threading
 
 
 def main():
-	el_type = wins.mss_type_select()
+	
+	el_type = threading.Thread(target=wins.mss_run_scrpt).start()
 
 	#-------------------------------------------------------------Openning and cleaning Excel  file ----------------------------------------------
 	

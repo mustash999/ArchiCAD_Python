@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 
-def mss_type_select():
-	def get_selection():
-		global selected_option
-		selected_option = combobox.get()
-		root.destroy() 
+def get_selection():
+	global selected_option
+	selected_option = combobox.get()
+	root.destroy() 
 
+def mss_type_select():
 	root = tk.Tk()
 	root.title("Selection Window")
 
