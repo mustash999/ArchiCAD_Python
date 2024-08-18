@@ -11,11 +11,13 @@
 # **************************************************************************** #
 
 
-# Check if tkinter is installed
+
 
 import subprocess
 import sys
 
+
+# Check if tkinter is installed
 try:
 	import tkinter as tk
 	from tkinter import filedialog
@@ -73,8 +75,14 @@ def main():
 	folder_button = tk.Button(frame, text="Open link", width=35, command=lambda: mss_open_link("https://geniuspandatech.com"))
 	folder_button.pack(padx=5, pady=5)
 	#----------------------------------------------- 2-  PSP Scripts ----------------------------------------------------------------
+	import MSS_ElementsID_syncronizer.src.main as sync_ids
 	labelpath = tk.Label(frame,text="Scripts",wraplength=220,justify="left")
 	labelpath.pack(padx=5, pady=5)
+	script_button = tk.Button(frame, text="Run Script", width=35, command=lambda: sync_ids.main())
+	script_button.pack(padx=5, pady=5)
+
+
+
 
 	folder_button = tk.Button(frame, text="Run Script", width=35, command=lambda: mss_open_link("https://geniuspandatech.com"))
 	folder_button.pack(padx=5, pady=5)
