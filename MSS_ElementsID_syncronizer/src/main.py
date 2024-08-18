@@ -10,21 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-# internal imports
-import os
-
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+# external imports
+from archicad import ACConnection
+import sys
 import utils
 import opennings_control as op
 import table_control as table
-
-# external imports
-from archicad import ACConnection
 conn = ACConnection.connect()
 assert conn
 acc = conn.commands
 act = conn.types
 acu = conn.utilities
+
+# internal imports
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+import utils
+import opennings_control as op
+import table_control as table
+
 
 def main():
 	
