@@ -26,7 +26,9 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import opennings_control as op
 import table_control as table
+import ask
 import utils
+
 
 def main():
 	
@@ -38,7 +40,7 @@ def main():
 
 
 	#-------------------------------------------------------------Extracting the opennings and searching for them in the excel file----------------------------------------------
-	el_type = input("Enter the element type (Door or Window): ")
+	el_type = ask.mss_type_select()
 	i = 0
 	all_opennings = op.ext_all_of_type(el_type)
 
